@@ -61,14 +61,20 @@ public class SpawnManager : MonoBehaviour
             var spawnedEnemy = Instantiate(randomPrefab);
             var randomSpawnTile = GridManager.Instance.GetEnemySpawnTile();
 
-            if (randomSpawnTile == null) { return; }
+            print(spawnedEnemy);
+
+            if (randomSpawnTile == null) { 
+                print("ERROR: Not enough space for Enemy");
+                return; }
 
             _unitsOnField.Add(spawnedEnemy);
 
             randomSpawnTile.SetUnit(spawnedEnemy);
+
             if (LevelManager.Instance.nextEnemies.isBossfight) {
+                //We dont check if there is enough space for multiple tiles!
                 BaseBoss bossEnemy = (BaseBoss)enemy;
-                bossEnemy.AddMultiTiles();
+                bossEnemy.AddMultiTiles(randomSpawnTile, spawnedEnemy);
             }
         }
         

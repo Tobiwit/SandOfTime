@@ -6,13 +6,27 @@ public class BaseBoss : BaseEnemy
 {
     bool multiTileBoss = true;
 
+    public int width;
+    public int height;
 
-    public void AddMultiTiles() {
+
+    public void AddMultiTiles(Tile spawnTile, BaseUnit spawnedPrefab) {
         if (multiTileBoss) {
-            Tile tile = this.OccupiedTile;
-            print(tile.xVector + " + " + tile.yVector);
-            Tile addedTile = GridManager.Instance.GetTileAtPosition(new Vector2(tile.xVector, tile.yVector - 1));
-            addedTile.OccupiedUnit = this;
+            print(spawnTile.xVector + " + " + spawnTile.yVector);
+            Tile addedTile;
+            if (GridManager.Instance._height == spawnTile.yVector) {
+                addedTile = GridManager.Instance.GetTileAtPosition(new Vector2(spawnTile.xVector, spawnTile.yVector -1));
+                addedTile.OccupiedUnit = spawnedPrefab;
+                addedTile = GridManager.Instance.GetTileAtPosition(new Vector2(spawnTile.xVector-1, spawnTile.yVector -1));
+                addedTile.OccupiedUnit = spawnedPrefab;
+            } else {
+                addedTile = GridManager.Instance.GetTileAtPosition(new Vector2(spawnTile.xVector, spawnTile.yVector +1));
+                addedTile.OccupiedUnit = spawnedPrefab;
+                addedTile = GridManager.Instance.GetTileAtPosition(new Vector2(spawnTile.xVector-1, spawnTile.yVector +1));
+                addedTile.OccupiedUnit = spawnedPrefab;
+            }
+            addedTile = GridManager.Instance.GetTileAtPosition(new Vector2(spawnTile.xVector-1, spawnTile.yVector));
+            addedTile.OccupiedUnit = spawnedPrefab;
         }
     }
 }
