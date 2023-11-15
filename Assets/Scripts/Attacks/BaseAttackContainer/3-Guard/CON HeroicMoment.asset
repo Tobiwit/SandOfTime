@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb3b5c7048ef63489601c1fc1d2bc05, type: 3}
+  m_Name: CON HeroicMoment
+  m_EditorClassIdentifier: 
+  attacks:
+  - {fileID: 11400000, guid: 66a7a571ede3a0c4985fc1725378a010, type: 2}
+  - {fileID: 11400000, guid: e128158baebfcc1459efaa06f4c6c548, type: 2}
+  - {fileID: 11400000, guid: 627176d615192c64ba88eac2f8d59d9f, type: 2}

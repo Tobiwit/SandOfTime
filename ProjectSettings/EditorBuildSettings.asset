@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenuScene.unity
+    guid: f54560981265fe24da08378e0eed7269
+  - enabled: 1
+    path: Assets/Scenes/HeroSelectScene.unity
+    guid: 50e21d34769fa3441b204a1a53c9c10d
+  - enabled: 1
+    path: Assets/Scenes/MapScene.unity
+    guid: 5f148e2812cf1b546a50ca2119953c9f
+  - enabled: 1
+    path: Assets/Scenes/CombatScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/InBetweenScene.unity
+    guid: 6269ec004fca3414dbcb5c4f94b8832b
+  - enabled: 1
+    path: Assets/Scenes/TombChamberScene.unity
+    guid: e68e31e77c507d84b91e86ec9acba624
+  - enabled: 1
+    path: Assets/Scenes/ShrineScene.unity
+    guid: 4ff30e7830a678649a3a8c38bf4a43af
+  - enabled: 1
+    path: Assets/Scenes/ShopScene.unity
+    guid: ca94865eaac347f48a80bde90b440da0
+  - enabled: 1
+    path: Assets/Scenes/HealingWellScene.unity
+    guid: 50c82a0858bec5848b9a9e0c7708c6ec
+  m_configObjects: {}

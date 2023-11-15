@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cdd7f7e4cb5e02458c186f278d66dfd, type: 3}
+  m_Name: Wide Slash
+  m_EditorClassIdentifier: 
+  displayName: Wide Slash
+  prefab: {fileID: 8623383604572086648, guid: 1d7a4def9ada21e4da5de9c958343416, type: 3}
+  description: Something
+  energyCost: 2
+  actionType: 0
+  actionMin: 2
+  actionMax: 3
+  playerClass: 0
+  targetPattern: {fileID: 11400000, guid: 18a5c18c6f73c7d46b65264ca0792535, type: 2}
+  applyEffect: 0
+  effectType: 0
+  effectAmount: 0

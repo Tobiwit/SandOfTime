@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb3b5c7048ef63489601c1fc1d2bc05, type: 3}
+  m_Name: CON DeepBreath
+  m_EditorClassIdentifier: 
+  attacks:
+  - {fileID: 11400000, guid: 919531f515688724ebefe7955919ea15, type: 2}
+  - {fileID: 11400000, guid: 400ea403fccc9bf42a3234d762035d40, type: 2}
+  - {fileID: 11400000, guid: 005253d4d776da944af7d50fe0668ba0, type: 2}

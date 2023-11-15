@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adf1657be93e8ca4e9ecc4b6df3687d9, type: 3}
+  m_Name: C3-Guard #CON
+  m_EditorClassIdentifier: 
+  preComputeList:
+  - {fileID: 11400000, guid: bf1aa4c5c3f94754cb70597d2225530d, type: 2}
+  - {fileID: 11400000, guid: 30bf139578b781c469f482973369b002, type: 2}
+  - {fileID: 11400000, guid: e1268c0befecb9b4196049216c634f24, type: 2}
+  - {fileID: 11400000, guid: 6694c112d9d4a6d4285e9dd34cde34f2, type: 2}

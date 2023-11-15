@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cdd7f7e4cb5e02458c186f278d66dfd, type: 3}
+  m_Name: NaturalResistance2
+  m_EditorClassIdentifier: 
+  displayName: Natural Resistance
+  prefab: {fileID: 8623383604572086648, guid: 1d7a4def9ada21e4da5de9c958343416, type: 3}
+  description: You natural Resistance allows you to remove 2 random Effect of you
+    or one of your team mates nearby.
+  energyCost: 2
+  actionType: 6
+  actionTeam: 3
+  actionMin: 0
+  actionMax: 0
+  actionAmount: 1
+  playerClass: 0
+  lineType: 0
+  targetPattern: {fileID: 11400000, guid: 9cd00bc569b9db8478e328b21884f075, type: 2}
+  skillImage: {fileID: 21300000, guid: 6cd18dd748885c84e913b2fd5a2dd86d, type: 3}
+  applyEffect: 0
+  effectSelector: 0
+  effectType: 0
+  effectAmount: 0
+  secEffectSelector: 0
+  secEffectType: 0
+  secEffectAmount: 0
+  applySpecialFunction: 1
+  CardID: 00302

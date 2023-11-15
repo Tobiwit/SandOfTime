@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cdd7f7e4cb5e02458c186f278d66dfd, type: 3}
+  m_Name: Burning Hand
+  m_EditorClassIdentifier: 
+  displayName: Burning Hand
+  prefab: {fileID: 8623383604572086648, guid: 1d7a4def9ada21e4da5de9c958343416, type: 3}
+  description: You deal 2 - 5 Damage to every Opponent in the Front row and apply
+    2 Burning.
+  energyCost: 2
+  actionType: 0
+  actionMin: 2
+  actionMax: 5
+  actionAmount: 1
+  playerClass: 0
+  lineType: 0
+  targetPattern: {fileID: 11400000, guid: 16091468f3a0ca5478f0ccfeaf810996, type: 2}
+  skillImage: {fileID: 21300000, guid: fbe1a2d2bda0b9d47bfdd04ebe46b44d, type: 3}
+  applyEffect: 1
+  effectSelector: 2
+  effectType: 3
+  effectAmount: 2
+  secEffectSelector: 0
+  secEffectType: 0
+  secEffectAmount: 0

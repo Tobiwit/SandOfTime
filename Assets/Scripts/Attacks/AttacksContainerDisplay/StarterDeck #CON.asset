@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adf1657be93e8ca4e9ecc4b6df3687d9, type: 3}
+  m_Name: StarterDeck #CON
+  m_EditorClassIdentifier: 
+  preComputeList:
+  - {fileID: 11400000, guid: 7f05c0ef552c07a4a8668d2861bd34e3, type: 2}
+  - {fileID: 11400000, guid: 7f05c0ef552c07a4a8668d2861bd34e3, type: 2}
+  - {fileID: 11400000, guid: 7f05c0ef552c07a4a8668d2861bd34e3, type: 2}
+  - {fileID: 11400000, guid: 7f05c0ef552c07a4a8668d2861bd34e3, type: 2}
+  - {fileID: 11400000, guid: 1ba4991c204bd3d4ea41a31969f04f24, type: 2}
+  - {fileID: 11400000, guid: 1ba4991c204bd3d4ea41a31969f04f24, type: 2}
+  - {fileID: 11400000, guid: 1ba4991c204bd3d4ea41a31969f04f24, type: 2}
+  - {fileID: 11400000, guid: ada5b0cd7eb1ad14e8ce5a6fedcb79e0, type: 2}
+  - {fileID: 11400000, guid: e42dc2592ee50314987ce3331e704a5d, type: 2}

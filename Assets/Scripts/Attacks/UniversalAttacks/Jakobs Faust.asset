@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cdd7f7e4cb5e02458c186f278d66dfd, type: 3}
+  m_Name: Jakobs Faust
+  m_EditorClassIdentifier: 
+  displayName: Jakobs Faust
+  prefab: {fileID: 8623383604572086648, guid: 1d7a4def9ada21e4da5de9c958343416, type: 3}
+  description: Hits as hard as jacob is tall
+  energyCost: 2
+  actionType: 0
+  actionMin: 10
+  actionMax: 20
+  actionAmount: 8
+  playerClass: 0
+  lineType: 1
+  targetPattern: {fileID: 11400000, guid: c12b35b16c636e74fa7ec06f1c3bfc3d, type: 2}
+  skillImage: {fileID: 0}
+  applyEffect: 0
+  effectSelector: 0
+  effectType: 0
+  effectAmount: 0
+  secEffectSelector: 0
+  secEffectType: 0
+  secEffectAmount: 0
