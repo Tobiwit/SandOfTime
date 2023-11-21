@@ -22,7 +22,7 @@ MonoBehaviour:
   actionMin: 0
   actionMax: 0
   actionAmount: 1
-  playerClass: 0
+  playerClass: 2
   lineType: 0
   targetPattern: {fileID: 11400000, guid: dd4fb7cda007de542861b67fbe8799ec, type: 2}
   skillImage: {fileID: 21300000, guid: a534d1e6d945e204db063f83bce69e3f, type: 3}

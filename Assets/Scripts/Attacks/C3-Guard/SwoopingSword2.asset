@@ -18,10 +18,11 @@ MonoBehaviour:
     deal 2 - 8 Damage to each.
   energyCost: 2
   actionType: 0
+  actionTeam: 0
   actionMin: 2
   actionMax: 8
   actionAmount: 1
-  playerClass: 0
+  playerClass: 3
   lineType: 0
   targetPattern: {fileID: 11400000, guid: 16091468f3a0ca5478f0ccfeaf810996, type: 2}
   skillImage: {fileID: 0}
