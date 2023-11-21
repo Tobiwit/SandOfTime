@@ -56,9 +56,13 @@ public enum ActionTeam {
 public enum PlayerClass
 {
     All,
-    HeroOne,
-    HeroTwo,
-    HeroThree
+    Archeologist,
+    Tombraider,
+    Guard,
+    Priestress,
+    Slave,
+    Scribe,
+    Merchant
 }
 
 public enum LineType

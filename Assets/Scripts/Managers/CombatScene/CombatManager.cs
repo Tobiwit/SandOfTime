@@ -194,12 +194,33 @@ public class CombatManager : MonoBehaviour {
         if (GameManager.Instance.State != GameState.PlayerTurn) {
             return false;
         }
-        /*
         if (attack.playerClass != PlayerClass.All) {
-            //REWORK with ACTIVE_HERO
-            return false;
+            switch (attack.playerClass){
+                case PlayerClass.Archeologist:
+                    break;
+                case PlayerClass.Tombraider:
+                    if(activeHero.UnitType != "Tomb Raider") {
+                        EventTextManager.Instance.NewWarningText("Your active Hero can't do that");
+                        return false;
+                    }
+                    break;
+                case PlayerClass.Guard:
+                    if(activeHero.UnitType != "Guard") {
+                        EventTextManager.Instance.NewWarningText("Your active Hero can't do that");
+                        return false;
+                    }
+                    break;
+                case PlayerClass.Priestress:
+                    break;
+                case PlayerClass.Slave:
+                    break;
+                case PlayerClass.Scribe:
+                    break;
+                case PlayerClass.Merchant:
+                default:
+                    break;
+            }
         }
-        */
         if (!activeHero.CheckEnergyCost(attack.energyCost)) {
             EventTextManager.Instance.NewWarningText("You don't have enough energy");
             return false;
@@ -289,7 +310,7 @@ public class CombatManager : MonoBehaviour {
             case ActionTeam.SelfOnly:
                 return (targetedUnit == activeHero);
             case ActionTeam.TeamAndSelf:
-                return (targetedUnit.Faction == Faction.Hero);
+                return (targetedUnit.Faction == Faction.Hero || targetedUnit == activeHero);
             case ActionTeam.Everybody:
                 return true;
         }

@@ -219,6 +219,8 @@ public class TargetManager : MonoBehaviour
                         Vector2 targetedTilePos = new Vector2(x1, y1 + 1);
                         targetedTiles.Add(GridManager.Instance.GetTileAtPosition(targetedTilePos));
                     }
+                    //Adding Tile with Self
+                    targetedTiles.Add(GridManager.Instance.GetTileAtPosition(new Vector2(x1, y1)));
                     break;
                 case AOEType.OneRandomTile:
                     int randY = Random.Range(0, GridManager.Instance._height);
