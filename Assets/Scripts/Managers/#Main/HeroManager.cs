@@ -50,6 +50,20 @@ public class HeroManager : MonoBehaviour
         }
     }
 
+    public void RemoveHeroFromList(BaseUnit unit) {
+        if (selectedHeros.Count >0) {
+            selectedHeros.Remove(unit);
+            SelectHeroPanelManager.Instance.UpdateHeroText();
+            if (selectedHeros.Count == 0) {
+                DataHeroOne = null;
+            } else if (selectedHeros.Count == 1) {
+                DataHeroTwo = null;
+            } else {
+                DataHeroThree = null;
+            }
+        }
+    }
+
     public void SafeHeroStatus(List<BaseUnit> heroes) {
         for (int i = 0; i < heroes.Count; i++) {
             BaseUnit hero = heroes[i];
