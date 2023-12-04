@@ -25,12 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 372456042774186125}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1997860117958571115
 SpriteRenderer:
@@ -43,6 +44,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -107,5 +109,10 @@ MonoBehaviour:
   CurrentHealth: 30
   MaxTurnEnergy: 4
   CurrentBlock: 0
+  Weapon: {fileID: 0}
+  Equipment: {fileID: 0}
+  ConsumableOne: {fileID: 0}
+  ConsumableTwo: {fileID: 0}
   _specialAbilityAttack: {fileID: 11400000, guid: b62d303c62a41fa48bea44bac807f0ae, type: 2}
   StarterDeck: {fileID: 11400000, guid: 84d39a6bbfb9f494caaa2929877ea7f5, type: 2}
+  StarterWeapon: {fileID: 11400000, guid: c8cc972f4c688da45bf519a2b83df918, type: 2}

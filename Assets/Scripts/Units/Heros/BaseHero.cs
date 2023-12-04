@@ -7,4 +7,6 @@ public class BaseHero : BaseUnit
     public BaseAttack _specialAbilityAttack;
 
     public AttacksContainerDisplay StarterDeck;
+
+    public BaseItem StarterWeapon;
 }

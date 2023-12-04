@@ -50,6 +50,11 @@ public class SpawnManager : MonoBehaviour
         unit.MaxHealth = data.maxHP;
         unit.CurrentHealth = data.currentHP;
         unit.RecalibrateHealthbar(unit.MaxHealth, unit.CurrentHealth);
+        
+        unit.Weapon = data.weaponSlot;
+        unit.Equipment = data.equipmentSlot;
+        unit.ConsumableOne = data.consumableSlotOne;
+        unit.ConsumableTwo = data.consumableSlotTwo;
     }
 
     public void SpawnEnemies()

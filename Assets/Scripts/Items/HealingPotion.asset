@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09da212d7842007488120a7cdec16863, type: 3}
+  m_Name: HealingPotion
+  m_EditorClassIdentifier: 
+  displayName: Healing Potion
+  prefab: {fileID: 8474215939822555165, guid: ea3271ea6186cb74791292d0e9d460ba, type: 3}
+  description: Heals you
+  image: {fileID: 21300000, guid: 64bae797c5275ff40be18c3320002058, type: 3}
+  goldCost: 50
+  crystalCost: 0
+  itemType: 0

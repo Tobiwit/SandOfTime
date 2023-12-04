@@ -34,6 +34,18 @@ public class BaseUnit : MonoBehaviour
 
     #endregion
 
+    #region Inventory
+
+    public BaseItem Weapon;
+
+    public BaseItem Equipment;
+
+    public BaseItem ConsumableOne;
+
+    public BaseItem ConsumableTwo;
+
+    #endregion
+
     private void Awake()
     {
 

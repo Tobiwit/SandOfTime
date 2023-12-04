@@ -14,8 +14,12 @@ public class GuiManager : MonoBehaviour
     [SerializeField] private GameObject _effectUnit, _secEffectUnit;
     [SerializeField] private Sprite _indicatorBoth, _indicatorBack, _indicatorFront, _indicatorDamage, _indicatorHeal, _indicatorBlock;
 
+    [SerializeField] private GameObject _weaponSlot, _equipmentSlot,_consumableSlotOne,_consumableSlotTwo;
+
     public GameObject effectUnitPrefab;
     public GameObject effectHolder;
+
+    public GameObject itemPrefab;
 
     public Sprite tempImage;
 
@@ -54,6 +58,33 @@ public class GuiManager : MonoBehaviour
         
     }
 
+    public void UpdateItemDisplay(BaseUnit unit)
+    {
+        ClearItemDisplay();   
+        var weaponItem = unit.Weapon;
+
+        if(weaponItem != null) {
+            var weaponUnit = Instantiate(itemPrefab, _weaponSlot.transform.position, Quaternion.identity);
+            weaponUnit.transform.SetParent(_weaponSlot.transform);
+            weaponUnit.GetComponent<BaseItemPrefab>().SetData(weaponItem);
+            if(unit.Weapon.image) {
+                weaponUnit.transform.GetChild(1).GetComponent<Image>().sprite = unit.Weapon.image;
+                weaponUnit.transform.GetChild(1).GetComponent<Image>().gameObject.SetActive(true);
+            }
+        }
+    }
+
+    public void ClearItemDisplay() {
+        if(_weaponSlot.transform.childCount > 0) {
+            GameObject.Destroy(_weaponSlot.transform.GetChild(0).gameObject);
+        }
+        /*
+        GameObject.Destroy(_equipmentSlot.transform.GetChild(0).gameObject);
+        GameObject.Destroy(_consumableSlotOne.transform.GetChild(0).gameObject);
+        GameObject.Destroy(_consumableSlotTwo.transform.GetChild(0).gameObject);
+        */
+    }
+
     private Vector3 GetEffectUnitPosition(int i)
     {
         return new Vector3(i * (120f) - 250f, 0f, 0f);
@@ -75,6 +106,7 @@ public class GuiManager : MonoBehaviour
             _selectedBlockIcon.SetActive(false);
             _selectedHPIcon.SetActive(false);
             effectHolder.SetActive(false);
+            ClearItemDisplay();
             return;
         }
 
@@ -96,6 +128,7 @@ public class GuiManager : MonoBehaviour
             _selectedHPIcon.SetActive(true);
 
             UpdateEffectDisplay(tile.OccupiedUnit);
+            UpdateItemDisplay(tile.OccupiedUnit);
         } else
         {
             _selectedUnitNameObject.SetActive(false);
@@ -105,6 +138,7 @@ public class GuiManager : MonoBehaviour
             _selectedBlockIcon.SetActive(false);
             _selectedHPIcon.SetActive(false);
             effectHolder.SetActive(false);
+            ClearItemDisplay();
         }
 
     }

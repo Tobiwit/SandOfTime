@@ -11,6 +11,14 @@ public class HeroManager : MonoBehaviour
         public string name, type;
         public int maxHP, currentHP;
 
+        public BaseItem weaponSlot;
+
+        public BaseItem equipmentSlot;
+
+        public BaseItem consumableSlotOne;
+
+        public BaseItem consumableSlotTwo;
+
         public DataUnit(int _ID, BaseUnit _prefab, string _name, string _type, int _maxHP, int _currentHP) {
             ID = _ID;
             prefab = _prefab;
@@ -42,10 +50,13 @@ public class HeroManager : MonoBehaviour
             SelectHeroPanelManager.Instance.UpdateHeroText();
             if (selectedHeros.Count == 1) {
                 DataHeroOne = new DataUnit(1, unit, unit.UnitName, unit.UnitType, unit.MaxHealth, unit.CurrentHealth);
+                DataHeroOne.weaponSlot = ((BaseHero) unit).StarterWeapon;
             } else if (selectedHeros.Count == 2) {
                 DataHeroTwo = new DataUnit(2, unit, unit.UnitName, unit.UnitType, unit.MaxHealth, unit.CurrentHealth);
+                DataHeroTwo.weaponSlot = ((BaseHero) unit).StarterWeapon;
             } else {
                 DataHeroThree = new DataUnit(3, unit, unit.UnitName, unit.UnitType, unit.MaxHealth, unit.CurrentHealth);
+                DataHeroThree.weaponSlot = ((BaseHero) unit).StarterWeapon;
             }
         }
     }
@@ -68,6 +79,7 @@ public class HeroManager : MonoBehaviour
         for (int i = 0; i < heroes.Count; i++) {
             BaseUnit hero = heroes[i];
             UpdateHeroData(i + 1, hero, hero.UnitName, hero.UnitType, hero.MaxHealth, hero.CurrentHealth);
+            UpdateHeroInventory(i+1, hero.Weapon, hero.Equipment, hero.ConsumableOne, hero.ConsumableTwo);
         }
     }
 
@@ -98,6 +110,32 @@ public class HeroManager : MonoBehaviour
                 break;
         }
         
+    }
+
+    public void UpdateHeroInventory(int _ID, BaseItem weapon, BaseItem equipment, BaseItem consumableOne, BaseItem consumableTwo) {
+        switch (_ID)
+        {
+            case 1:
+                DataHeroOne.weaponSlot = weapon;
+                DataHeroOne.equipmentSlot = equipment;
+                DataHeroOne.consumableSlotOne = consumableOne;
+                DataHeroOne.consumableSlotTwo = consumableTwo;
+                break;
+            case 2:
+                DataHeroTwo.weaponSlot = weapon;
+                DataHeroTwo.equipmentSlot = equipment;
+                DataHeroTwo.consumableSlotOne = consumableOne;
+                DataHeroTwo.consumableSlotTwo = consumableTwo;
+                break;
+            case 3:
+                DataHeroThree.weaponSlot = weapon;
+                DataHeroThree.equipmentSlot = equipment;
+                DataHeroThree.consumableSlotOne = consumableOne;
+                DataHeroThree.consumableSlotTwo = consumableTwo;
+                break;
+            default:
+                break;
+        }
     }
 
     public void PrintHeroHP() {
