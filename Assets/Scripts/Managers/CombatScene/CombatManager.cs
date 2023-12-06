@@ -162,6 +162,7 @@ public class CombatManager : MonoBehaviour {
 
     private void StartEnemyTurn() {
         activeEnemy = (BaseEnemy)turnOrder[turn];
+        GuiManager.Instance.ShowTileInfo(activeEnemy.OccupiedTile);
         EffectManager.Instance.TriggerAllEffects(EffectState.OnTurnStart, activeEnemy);
         GameManager.Instance.UpdateGameState(GameState.EnemyTurn);
         activeEnemy.OccupiedTile._activeCharacterHighlight.SetActive(true);

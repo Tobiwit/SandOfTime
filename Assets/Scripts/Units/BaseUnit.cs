@@ -109,7 +109,9 @@ public class BaseUnit : MonoBehaviour
             }
         }
         EffectManager.Instance.TriggerAllEffects(EffectState.OnBeingAttacked, this);
-        GuiManager.Instance.ShowTileInfo(OccupiedTile);
+        if(CombatManager.Instance.activeHero == this) {
+            GuiManager.Instance.ShowTileInfo(OccupiedTile);
+        }
     }
 
     public void Heal(int healAmount)
@@ -127,7 +129,9 @@ public class BaseUnit : MonoBehaviour
             CuiManager.Instance.SpawnHealText(this, MaxHealth-CurrentHealth);
             CurrentHealth = MaxHealth;
         }
-        GuiManager.Instance.ShowTileInfo(OccupiedTile);
+        if(CombatManager.Instance.activeHero == this) {
+            GuiManager.Instance.ShowTileInfo(OccupiedTile);
+        }
     }
 
     public void Block(int blockAmount)
@@ -140,6 +144,9 @@ public class BaseUnit : MonoBehaviour
         CuiManager.Instance.SpawnBlockText(this, blockAmount);
         if (CurrentBlock > 4) {
             CurrentBlock = 4;
+        }
+        if(CombatManager.Instance.activeHero == this) {
+            GuiManager.Instance.ShowTileInfo(OccupiedTile);
         }
     }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Net.WebSockets;
 
 public class GuiManager : MonoBehaviour
 {
@@ -62,21 +63,55 @@ public class GuiManager : MonoBehaviour
     {
         ClearItemDisplay();   
         var weaponItem = unit.Weapon;
+        var equipmentItem = unit.Weapon;
+        var consumableOneItem = unit.Weapon;
+        var consumableTwoItem = unit.Weapon;
 
-        if(weaponItem != null) {
-            var weaponUnit = Instantiate(itemPrefab, _weaponSlot.transform.position, Quaternion.identity);
-            weaponUnit.transform.SetParent(_weaponSlot.transform);
-            weaponUnit.GetComponent<BaseItemPrefab>().SetData(weaponItem);
-            if(unit.Weapon.image) {
-                weaponUnit.transform.GetChild(1).GetComponent<Image>().sprite = unit.Weapon.image;
-                weaponUnit.transform.GetChild(1).GetComponent<Image>().gameObject.SetActive(true);
+        List<BaseItem> items = new List<BaseItem>
+        {
+            unit.Weapon,
+            unit.Equipment,
+            unit.ConsumableOne,
+            unit.ConsumableTwo
+        };
+
+        List<GameObject> slots = new List<GameObject>
+        {
+            _weaponSlot,
+            _equipmentSlot,
+            _consumableSlotOne,
+            _consumableSlotTwo
+        };
+
+        for (int i = 0; i < items.Count; i++)
+        {
+            BaseItem item = items[i];
+            if (item != null) {
+                var itemUnit = Instantiate(itemPrefab, slots[i].transform.position, Quaternion.identity);
+                itemUnit.transform.SetParent(slots[i].transform);
+                itemUnit.GetComponent<BaseItemPrefab>().SetData(item);
+                if(item.image) {
+                    itemUnit.transform.GetChild(1).GetComponent<Image>().sprite = item.image;
+                    itemUnit.transform.GetChild(1).GetComponent<Image>().gameObject.SetActive(true);
+                }
+                itemUnit.GetComponent<TooltipTrigger>().ChangeTooltip(item.displayName,item.description);
             }
         }
+        
     }
 
     public void ClearItemDisplay() {
         if(_weaponSlot.transform.childCount > 0) {
             GameObject.Destroy(_weaponSlot.transform.GetChild(0).gameObject);
+        }
+        if(_equipmentSlot.transform.childCount > 0) {
+            GameObject.Destroy(_equipmentSlot.transform.GetChild(0).gameObject);
+        }
+        if(_consumableSlotOne.transform.childCount > 0) {
+            GameObject.Destroy(_consumableSlotOne.transform.GetChild(0).gameObject);
+        }
+        if(_consumableSlotTwo.transform.childCount > 0) {
+            GameObject.Destroy(_consumableSlotTwo.transform.GetChild(0).gameObject);
         }
         /*
         GameObject.Destroy(_equipmentSlot.transform.GetChild(0).gameObject);
@@ -107,6 +142,7 @@ public class GuiManager : MonoBehaviour
             _selectedHPIcon.SetActive(false);
             effectHolder.SetActive(false);
             ClearItemDisplay();
+            Debug.Log("Null Nummer");
             return;
         }
 
@@ -129,6 +165,7 @@ public class GuiManager : MonoBehaviour
 
             UpdateEffectDisplay(tile.OccupiedUnit);
             UpdateItemDisplay(tile.OccupiedUnit);
+            Debug.Log("Unit " + tile.OccupiedUnit.UnitName);
         } else
         {
             _selectedUnitNameObject.SetActive(false);
@@ -139,6 +176,7 @@ public class GuiManager : MonoBehaviour
             _selectedHPIcon.SetActive(false);
             effectHolder.SetActive(false);
             ClearItemDisplay();
+            Debug.Log("Null Niemand Da");
         }
 
     }

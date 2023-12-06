@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,5 +22,10 @@ public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public void OnPointerExit(PointerEventData eventData) {
         LeanTween.cancel(delay.uniqueId);
         TooltipManager.Hide();
+    }
+
+    public void ChangeTooltip(String headerText, String contentText) {
+        header = headerText;
+        content = contentText;
     }
 }
