@@ -201,6 +201,7 @@ public class HeroManager : MonoBehaviour
                 return UnitType.Druid;
             default:
                 return UnitType.None;
+                
         }
     }
 

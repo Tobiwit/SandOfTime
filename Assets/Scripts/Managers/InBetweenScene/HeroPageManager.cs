@@ -21,7 +21,7 @@ public class HeroPageManager : MonoBehaviour
         for (int i = 0; i < inventoryItems.Count; i++)
         {
             BaseItem item = inventoryItems[i];
-            InventoryManager.Instance.SpawnItem(item,InventoryContainer.transform.GetChild(i).gameObject);
+            InventoryManager.Instance.SpawnItem(item,InventoryContainer.transform.GetChild(i).gameObject, true);
 
         }
     }

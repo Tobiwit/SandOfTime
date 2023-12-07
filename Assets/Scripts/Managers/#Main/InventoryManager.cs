@@ -43,7 +43,7 @@ public class InventoryManager : MonoBehaviour
         return inventory;
     }
 
-    public void SpawnItem(BaseItem item, GameObject targetObject) {
+    public void SpawnItem(BaseItem item, GameObject targetObject, bool draggable = false) {
         if (item != null) {
                 var itemUnit = Instantiate(itemPrefab, targetObject.transform.position, Quaternion.identity);
                 itemUnit.transform.SetParent(targetObject.transform);
@@ -53,6 +53,9 @@ public class InventoryManager : MonoBehaviour
                     itemUnit.transform.GetChild(1).GetComponent<Image>().gameObject.SetActive(true);
                 }
                 itemUnit.GetComponent<TooltipTrigger>().ChangeTooltip(item.displayName,item.description);
+                if(draggable) {
+                    itemUnit.AddComponent<DraggableItem>();
+                }
             }
     }
 
