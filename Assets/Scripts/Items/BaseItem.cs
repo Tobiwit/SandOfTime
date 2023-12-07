@@ -19,6 +19,10 @@ public class BaseItem : ScriptableObject
 
     public ItemType itemType;
 
+    public bool inHeroInventory = false;
+
+    public UnitType belongingHero;
+
 
 }
 

@@ -211,7 +211,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 57767234}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -220,11 +220,11 @@ RectTransform:
   - {fileID: 2119788788}
   - {fileID: 1016887208}
   - {fileID: 130786861}
-  m_Father: {fileID: 1764027991}
+  m_Father: {fileID: 759350736}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 365.21, y: -93.034}
+  m_AnchoredPosition: {x: 360.92715, y: 447.00037}
   m_SizeDelta: {x: 304, y: 304}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &57767236
@@ -596,7 +596,7 @@ GameObject:
   - component: {fileID: 130786863}
   - component: {fileID: 130786862}
   m_Layer: 5
-  m_Name: Slot-1/1
+  m_Name: Slot-COnsumableTwo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3739,6 +3739,7 @@ RectTransform:
   - {fileID: 2084519617}
   - {fileID: 1758391382}
   - {fileID: 569699528}
+  - {fileID: 57767235}
   m_Father: {fileID: 291349026}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -5199,7 +5200,7 @@ GameObject:
   - component: {fileID: 1016887210}
   - component: {fileID: 1016887209}
   m_Layer: 5
-  m_Name: Slot-1/0
+  m_Name: Slot-ConsumeableOne
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7023,6 +7024,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1375915744}
   m_CullTransparentMesh: 1
+--- !u!1 &1376565343
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1376565344}
+  - component: {fileID: 1376565345}
+  m_Layer: 0
+  m_Name: HeroPageManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1376565344
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376565343}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1531798514}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1376565345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376565343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 264a889e35932a14d8a9db62dfd1b18d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inventoryBox: {fileID: 759350735}
 --- !u!1 &1428717039
 GameObject:
   m_ObjectHideFlags: 0
@@ -7455,7 +7501,7 @@ GameObject:
   - component: {fileID: 1506890389}
   - component: {fileID: 1506890388}
   m_Layer: 5
-  m_Name: Slot-0/0
+  m_Name: Slot-Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7550,6 +7596,7 @@ Transform:
   m_Children:
   - {fileID: 39152230}
   - {fileID: 410255315}
+  - {fileID: 1376565344}
   m_Father: {fileID: 305221255}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1531798515
@@ -9099,7 +9146,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1552878533}
-  - {fileID: 57767235}
   - {fileID: 1945803441}
   m_Father: {fileID: 291349026}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11366,7 +11412,7 @@ GameObject:
   - component: {fileID: 2119788790}
   - component: {fileID: 2119788789}
   m_Layer: 5
-  m_Name: Slot-0/1
+  m_Name: Slot-Equipment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

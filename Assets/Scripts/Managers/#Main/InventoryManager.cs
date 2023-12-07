@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -9,7 +11,9 @@ public class InventoryManager : MonoBehaviour
 
     public List<BaseItem> inventory = new List<BaseItem>();
 
-    private int maxCapacity = 20;
+    public GameObject itemPrefab;
+
+    private int maxCapacity = 21;
 
     void Awake() {
         if (Instance == null) {
@@ -33,6 +37,23 @@ public class InventoryManager : MonoBehaviour
         } else {
             Debug.Log("Inventory empty");
         }
+    }
+
+    public List<BaseItem> getInventory(){
+        return inventory;
+    }
+
+    public void SpawnItem(BaseItem item, GameObject targetObject) {
+        if (item != null) {
+                var itemUnit = Instantiate(itemPrefab, targetObject.transform.position, Quaternion.identity);
+                itemUnit.transform.SetParent(targetObject.transform);
+                itemUnit.GetComponent<BaseItemPrefab>().SetData(item);
+                if(item.image) {
+                    itemUnit.transform.GetChild(1).GetComponent<Image>().sprite = item.image;
+                    itemUnit.transform.GetChild(1).GetComponent<Image>().gameObject.SetActive(true);
+                }
+                itemUnit.GetComponent<TooltipTrigger>().ChangeTooltip(item.displayName,item.description);
+            }
     }
 
 

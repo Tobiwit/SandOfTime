@@ -1,6 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+public enum UnitType{
+    Archeologist,
+    Tombraider,
+    Guard,
+    Priestress,
+    Slave,
+    Scribe,
+    Druid,
+    None,
+}
 
 public class HeroManager : MonoBehaviour
 {
@@ -35,6 +47,16 @@ public class HeroManager : MonoBehaviour
 
     public List<BaseUnit> selectedHeros = new List<BaseUnit>();
 
+    public List<Color> unitColorCodes = new List<Color>{
+            new Color(223,113,38),
+            new Color(118,66,138),
+            new Color(63,63,116),
+            new Color(230,186,5),
+            new Color(172,50,50),
+            new Color(1,1,1),
+            new Color(1,1,1),
+        };
+
     void Awake() {
         if (Instance == null) {
             Instance = this;
@@ -51,12 +73,21 @@ public class HeroManager : MonoBehaviour
             if (selectedHeros.Count == 1) {
                 DataHeroOne = new DataUnit(1, unit, unit.UnitName, unit.UnitType, unit.MaxHealth, unit.CurrentHealth);
                 DataHeroOne.weaponSlot = ((BaseHero) unit).StarterWeapon;
+                DataHeroOne.weaponSlot.inHeroInventory = true;
+                DataHeroOne.weaponSlot.belongingHero = translateStringTypeToUnitType(DataHeroOne.type);
+                InventoryManager.Instance.addItemToInventory(DataHeroOne.weaponSlot);
             } else if (selectedHeros.Count == 2) {
                 DataHeroTwo = new DataUnit(2, unit, unit.UnitName, unit.UnitType, unit.MaxHealth, unit.CurrentHealth);
                 DataHeroTwo.weaponSlot = ((BaseHero) unit).StarterWeapon;
+                DataHeroTwo.weaponSlot.inHeroInventory = true;
+                DataHeroTwo.weaponSlot.belongingHero = translateStringTypeToUnitType(DataHeroTwo.type);
+                InventoryManager.Instance.addItemToInventory(DataHeroTwo.weaponSlot);
             } else {
                 DataHeroThree = new DataUnit(3, unit, unit.UnitName, unit.UnitType, unit.MaxHealth, unit.CurrentHealth);
                 DataHeroThree.weaponSlot = ((BaseHero) unit).StarterWeapon;
+                DataHeroThree.weaponSlot.inHeroInventory = true;
+                DataHeroThree.weaponSlot.belongingHero = translateStringTypeToUnitType(DataHeroThree.type);
+                InventoryManager.Instance.addItemToInventory(DataHeroThree.weaponSlot);
             }
         }
     }
@@ -149,6 +180,28 @@ public class HeroManager : MonoBehaviour
             print(DataHeroThree.type + " : " + DataHeroThree.currentHP);
         }
 
+    }
+
+    public UnitType translateStringTypeToUnitType(string type) {
+        switch (type)
+        {
+            case "Archeologist":
+                return UnitType.Archeologist;
+            case "Tomb Raider":
+                return UnitType.Tombraider;
+            case "Guard":
+                return UnitType.Guard;
+            case "Priestress":
+                return UnitType.Priestress;
+            case "Slave":
+                return UnitType.Slave;
+            case "Scribe":
+                return UnitType.Scribe;
+            case "Druid":
+                return UnitType.Druid;
+            default:
+                return UnitType.None;
+        }
     }
 
 }
