@@ -37,8 +37,12 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         switch (currentSlot.slotType)
         {
             case SlotType.NormalSlot:
-                //if(item.itemType == )
-                SwitchItemSLots(draggableItem);
+                if(item.itemType == GetComponent<BaseItemPrefab>().item.itemType) {
+                    SwitchItemSLots(draggableItem);
+                } else {
+                    //Make Only Switch if old slot matches this typing
+                }
+                
                 break;
             case SlotType.WeaponSlot:
                 if(item.itemType == ItemType.Weapon) {
