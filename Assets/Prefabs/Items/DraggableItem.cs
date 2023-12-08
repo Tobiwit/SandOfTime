@@ -10,7 +10,6 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 {
 
     [HideInInspector] public Transform parentItemDrag;
-    public Image image;
     public void OnBeginDrag(PointerEventData eventData)
     {
         parentItemDrag = transform.parent;
@@ -19,6 +18,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         GetComponent<Image>().raycastTarget = false;
         transform.GetChild(0).GetComponent<Image>().raycastTarget = false;
         transform.GetChild(1).GetComponent<Image>().raycastTarget = false;
+        transform.GetChild(2).GetComponent<Image>().raycastTarget = false;
         GetComponent<TooltipTrigger>().tooltipEnabled = false;
         GetComponent<TooltipTrigger>().hideTooltip();
     }
@@ -34,39 +34,14 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         DraggableItem draggableItem = dropped.GetComponent<DraggableItem>();
         BaseItem item = draggableItem.gameObject.GetComponent<BaseItemPrefab>().item;
         InventorySlot currentSlot = transform.parent.gameObject.GetComponent<InventorySlot>();
-        switch (currentSlot.slotType)
-        {
-            case SlotType.NormalSlot:
-                if(item.itemType == GetComponent<BaseItemPrefab>().item.itemType) {
-                    SwitchItemSLots(draggableItem);
-                } else {
-                    //Make Only Switch if old slot matches this typing
-                }
-                
-                break;
-            case SlotType.WeaponSlot:
-                if(item.itemType == ItemType.Weapon) {
+
+        if(item.itemType == GetComponent<BaseItemPrefab>().item.itemType) {
+                SwitchItemSLots(draggableItem);
+            } else {
+                if (currentSlot.slotType == SlotType.NormalSlot && draggableItem.parentItemDrag.GetComponent<InventorySlot>().slotType == SlotType.NormalSlot) {
                     SwitchItemSLots(draggableItem);
                 }
-                break;
-            case SlotType.EquipmentSlot:
-                if(item.itemType == ItemType.Equipment) {
-                    SwitchItemSLots(draggableItem);
-                }
-                break;
-            case SlotType.ConsumableSlotOne:
-                if(item.itemType == ItemType.Consumable) {
-                    SwitchItemSLots(draggableItem);
-                }
-                break;
-            case SlotType.ConsumableSlotTwo:
-                if(item.itemType == ItemType.Consumable) {
-                    SwitchItemSLots(draggableItem);
-                }
-                break;
-            default:
-                break;
-        }
+            }
     }
 
     private void SwitchItemSLots(DraggableItem draggableItem)
@@ -85,6 +60,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         GetComponent<Image>().raycastTarget = true;
         transform.GetChild(0).GetComponent<Image>().raycastTarget = true;
         transform.GetChild(1).GetComponent<Image>().raycastTarget = true;
+        transform.GetChild(2).GetComponent<Image>().raycastTarget = true;
         GetComponent<TooltipTrigger>().tooltipEnabled = true;
         GetComponent<TooltipTrigger>().hideTooltip();
     }

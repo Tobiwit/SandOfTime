@@ -91,8 +91,8 @@ public class GuiManager : MonoBehaviour
                 itemUnit.transform.SetParent(slots[i].transform);
                 itemUnit.GetComponent<BaseItemPrefab>().SetData(item);
                 if(item.image) {
-                    itemUnit.transform.GetChild(1).GetComponent<Image>().sprite = item.image;
-                    itemUnit.transform.GetChild(1).GetComponent<Image>().gameObject.SetActive(true);
+                    itemUnit.transform.GetChild(2).GetComponent<Image>().sprite = item.image;
+                    itemUnit.transform.GetChild(2).GetComponent<Image>().gameObject.SetActive(true);
                 }
                 itemUnit.GetComponent<TooltipTrigger>().ChangeTooltip(item.displayName,item.description);
             }

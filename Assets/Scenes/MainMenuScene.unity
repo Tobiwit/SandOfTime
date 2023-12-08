@@ -2515,6 +2515,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: []
+  startInventory:
+  - {fileID: 11400000, guid: c8cc972f4c688da45bf519a2b83df918, type: 2}
+  - {fileID: 11400000, guid: c8cc972f4c688da45bf519a2b83df918, type: 2}
+  - {fileID: 11400000, guid: c8cc972f4c688da45bf519a2b83df918, type: 2}
   itemPrefab: {fileID: 8474215939822555165, guid: ea3271ea6186cb74791292d0e9d460ba, type: 3}
 --- !u!1 &2070251677
 GameObject:

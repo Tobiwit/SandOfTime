@@ -6,6 +6,7 @@ public class BaseItemPrefab : MonoBehaviour
 {
     [SerializeField] public GameObject _highlight;
     public BaseItem item;
+    public int belongingHero;
     public bool active;
     public bool hovered;
 

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum UnitType{
     Archeologist,
@@ -45,17 +46,23 @@ public class HeroManager : MonoBehaviour
 
     public DataUnit DataHeroOne, DataHeroTwo, DataHeroThree;
 
-    public List<BaseUnit> selectedHeros = new List<BaseUnit>();
+    public List<BaseUnit> selectedHeros = new();
 
-    public List<Color> unitColorCodes = new List<Color>{
-            new Color(223,113,38),
-            new Color(118,66,138),
-            new Color(63,63,116),
-            new Color(230,186,5),
-            new Color(172,50,50),
-            new Color(1,1,1),
-            new Color(1,1,1),
+    public List<Color32> unitColorCode = new()
+    {
+            new Color32(223,113,38,255),
+            new Color32(118,66,138,255),
+            new Color32(63,63,116,255),
+            new Color32(230,186,5,255),
+            new Color32(172,50,50,255),
+            new Color32(1,1,1,255),
+            new Color32(1,1,1,255),
         };
+
+    Color32 colorOne = new Color32(223,113,38,255);
+    Color32 colorTwo = new Color32(118,66,138,255);
+    Color32 colorThree = new Color32(63,63,116,255);
+
 
     void Awake() {
         if (Instance == null) {
@@ -73,21 +80,15 @@ public class HeroManager : MonoBehaviour
             if (selectedHeros.Count == 1) {
                 DataHeroOne = new DataUnit(1, unit, unit.UnitName, unit.UnitType, unit.MaxHealth, unit.CurrentHealth);
                 DataHeroOne.weaponSlot = ((BaseHero) unit).StarterWeapon;
-                DataHeroOne.weaponSlot.inHeroInventory = true;
-                DataHeroOne.weaponSlot.belongingHero = translateStringTypeToUnitType(DataHeroOne.type);
-                InventoryManager.Instance.addItemToInventory(DataHeroOne.weaponSlot);
+                InventoryManager.Instance.addItemToInventory(DataHeroOne.weaponSlot, (int) TranslateStringTypeToUnitType(DataHeroOne.type));
             } else if (selectedHeros.Count == 2) {
                 DataHeroTwo = new DataUnit(2, unit, unit.UnitName, unit.UnitType, unit.MaxHealth, unit.CurrentHealth);
                 DataHeroTwo.weaponSlot = ((BaseHero) unit).StarterWeapon;
-                DataHeroTwo.weaponSlot.inHeroInventory = true;
-                DataHeroTwo.weaponSlot.belongingHero = translateStringTypeToUnitType(DataHeroTwo.type);
-                InventoryManager.Instance.addItemToInventory(DataHeroTwo.weaponSlot);
+                InventoryManager.Instance.addItemToInventory(DataHeroTwo.weaponSlot, (int) TranslateStringTypeToUnitType(DataHeroTwo.type));
             } else {
                 DataHeroThree = new DataUnit(3, unit, unit.UnitName, unit.UnitType, unit.MaxHealth, unit.CurrentHealth);
                 DataHeroThree.weaponSlot = ((BaseHero) unit).StarterWeapon;
-                DataHeroThree.weaponSlot.inHeroInventory = true;
-                DataHeroThree.weaponSlot.belongingHero = translateStringTypeToUnitType(DataHeroThree.type);
-                InventoryManager.Instance.addItemToInventory(DataHeroThree.weaponSlot);
+                InventoryManager.Instance.addItemToInventory(DataHeroThree.weaponSlot, (int) TranslateStringTypeToUnitType(DataHeroThree.type));
             }
         }
     }
@@ -182,7 +183,7 @@ public class HeroManager : MonoBehaviour
 
     }
 
-    public UnitType translateStringTypeToUnitType(string type) {
+    public UnitType TranslateStringTypeToUnitType(string type) {
         switch (type)
         {
             case "Archeologist":
@@ -204,5 +205,12 @@ public class HeroManager : MonoBehaviour
                 
         }
     }
+
+    /*
+    public Color32 GetUnitColor(int id) {
+        //return UnitColorCodes[id];
+        //return null;
+    }
+    */
 
 }

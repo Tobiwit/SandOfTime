@@ -16,12 +16,12 @@ public class HeroPageManager : MonoBehaviour
 
 
     public void SetupMainInventory() {
-        List <BaseItem> inventoryItems = InventoryManager.Instance.getInventory();
+        List <KeyValuePair<BaseItem,int>> inventoryItems = InventoryManager.Instance.getInventory();
         GameObject InventoryContainer = _inventoryBox.transform.GetChild(1).gameObject;
         for (int i = 0; i < inventoryItems.Count; i++)
         {
-            BaseItem item = inventoryItems[i];
-            InventoryManager.Instance.SpawnItem(item,InventoryContainer.transform.GetChild(i).gameObject, true);
+            KeyValuePair<BaseItem,int> pair = inventoryItems[i];
+            InventoryManager.Instance.SpawnItem(pair.Key,InventoryContainer.transform.GetChild(i).gameObject, true,pair.Value);
 
         }
     }
