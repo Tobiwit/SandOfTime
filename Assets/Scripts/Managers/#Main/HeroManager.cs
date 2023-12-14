@@ -77,19 +77,9 @@ public class HeroManager : MonoBehaviour
         if (selectedHeros.Count < 3) {
             selectedHeros.Add(unit);
             SelectHeroPanelManager.Instance.UpdateHeroText();
-            if (selectedHeros.Count == 1) {
-                DataHeroOne = new DataUnit(1, unit, unit.UnitName, unit.UnitType, unit.MaxHealth, unit.CurrentHealth);
-                DataHeroOne.weaponSlot = ((BaseHero) unit).StarterWeapon;
-                InventoryManager.Instance.addItemToInventory(DataHeroOne.weaponSlot, (int) TranslateStringTypeToUnitType(DataHeroOne.type));
-            } else if (selectedHeros.Count == 2) {
-                DataHeroTwo = new DataUnit(2, unit, unit.UnitName, unit.UnitType, unit.MaxHealth, unit.CurrentHealth);
-                DataHeroTwo.weaponSlot = ((BaseHero) unit).StarterWeapon;
-                InventoryManager.Instance.addItemToInventory(DataHeroTwo.weaponSlot, (int) TranslateStringTypeToUnitType(DataHeroTwo.type));
-            } else {
-                DataHeroThree = new DataUnit(3, unit, unit.UnitName, unit.UnitType, unit.MaxHealth, unit.CurrentHealth);
-                DataHeroThree.weaponSlot = ((BaseHero) unit).StarterWeapon;
-                InventoryManager.Instance.addItemToInventory(DataHeroThree.weaponSlot, (int) TranslateStringTypeToUnitType(DataHeroThree.type));
-            }
+            ReinitiateDataFromList();
+        } else {
+            Debug.Log("ERROR: Only 3 Heros Allowed");
         }
     }
 
@@ -97,14 +87,38 @@ public class HeroManager : MonoBehaviour
         if (selectedHeros.Count >0) {
             selectedHeros.Remove(unit);
             SelectHeroPanelManager.Instance.UpdateHeroText();
-            if (selectedHeros.Count == 0) {
-                DataHeroOne = null;
-            } else if (selectedHeros.Count == 1) {
-                DataHeroTwo = null;
-            } else {
-                DataHeroThree = null;
-            }
+            ReinitiateDataFromList();
         }
+    }
+
+    public void ReinitiateDataFromList() {
+        DataHeroOne = null;
+        DataHeroTwo = null;
+        DataHeroThree = null;
+        InventoryManager.Instance.ClearAllItems();
+
+            for (int i = 0; i < selectedHeros.Count; i++) {
+
+                switch (i) {
+                    case 0:
+                        DataHeroOne = new DataUnit(i+1, selectedHeros[i], selectedHeros[i].UnitName, selectedHeros[i].UnitType, selectedHeros[i].MaxHealth, selectedHeros[i].CurrentHealth);
+                        DataHeroOne.weaponSlot = ((BaseHero) selectedHeros[i]).StarterWeapon;
+                        InventoryManager.Instance.addItemToInventory(DataHeroOne.weaponSlot, (int) TranslateStringTypeToUnitType(DataHeroOne.type));
+                        break;
+                    case 1:
+                        DataHeroTwo = new DataUnit(i+1, selectedHeros[i], selectedHeros[i].UnitName, selectedHeros[i].UnitType, selectedHeros[i].MaxHealth, selectedHeros[i].CurrentHealth);
+                        DataHeroTwo.weaponSlot = ((BaseHero) selectedHeros[i]).StarterWeapon;
+                        InventoryManager.Instance.addItemToInventory(DataHeroTwo.weaponSlot, (int) TranslateStringTypeToUnitType(DataHeroTwo.type));
+                        break;
+                    case 2:
+                        DataHeroThree = new DataUnit(i+1, selectedHeros[i], selectedHeros[i].UnitName, selectedHeros[i].UnitType, selectedHeros[i].MaxHealth, selectedHeros[i].CurrentHealth);
+                        DataHeroThree.weaponSlot = ((BaseHero) selectedHeros[i]).StarterWeapon;
+                        InventoryManager.Instance.addItemToInventory(DataHeroThree.weaponSlot, (int) TranslateStringTypeToUnitType(DataHeroThree.type));
+                        break;
+                    default:
+                        break;
+                }
+            }
     }
 
     public void SafeHeroStatus(List<BaseUnit> heroes) {

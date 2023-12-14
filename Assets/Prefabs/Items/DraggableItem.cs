@@ -21,6 +21,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         transform.GetChild(2).GetComponent<Image>().raycastTarget = false;
         GetComponent<TooltipTrigger>().tooltipEnabled = false;
         GetComponent<TooltipTrigger>().hideTooltip();
+        
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -36,15 +37,15 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         InventorySlot currentSlot = transform.parent.gameObject.GetComponent<InventorySlot>();
 
         if(item.itemType == GetComponent<BaseItemPrefab>().item.itemType) {
-                SwitchItemSLots(draggableItem);
+                SwitchItemSlots(draggableItem);
             } else {
                 if (currentSlot.slotType == SlotType.NormalSlot && draggableItem.parentItemDrag.GetComponent<InventorySlot>().slotType == SlotType.NormalSlot) {
-                    SwitchItemSLots(draggableItem);
+                    SwitchItemSlots(draggableItem);
                 }
             }
     }
 
-    private void SwitchItemSLots(DraggableItem draggableItem)
+    private void SwitchItemSlots(DraggableItem draggableItem)
     {
         Transform oldSlotTransform = draggableItem.parentItemDrag;
         draggableItem.parentItemDrag = transform.parent;
@@ -63,10 +64,6 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         transform.GetChild(2).GetComponent<Image>().raycastTarget = true;
         GetComponent<TooltipTrigger>().tooltipEnabled = true;
         GetComponent<TooltipTrigger>().hideTooltip();
-    }
-
-    public void SwitchItemSlots() {
-        
     }
 
     // Start is called before the first frame update
