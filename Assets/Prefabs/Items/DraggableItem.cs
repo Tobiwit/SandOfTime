@@ -37,12 +37,63 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         InventorySlot currentSlot = transform.parent.gameObject.GetComponent<InventorySlot>();
 
         if(item.itemType == GetComponent<BaseItemPrefab>().item.itemType) {
-                SwitchItemSlots(draggableItem);
-            } else {
-                if (currentSlot.slotType == SlotType.NormalSlot && draggableItem.parentItemDrag.GetComponent<InventorySlot>().slotType == SlotType.NormalSlot) {
-                    SwitchItemSlots(draggableItem);
+            BaseItemPrefab itemToSwitch = draggableItem.gameObject.GetComponent<BaseItemPrefab>();
+            BaseItemPrefab itemToBeSwitched = GetComponent<BaseItemPrefab>();
+            if (itemToSwitch.belongingHero <= 10 && itemToBeSwitched.belongingHero <= 10) {
+                // Nix
+            } else if(itemToSwitch.belongingHero <= 10) {
+                
+                draggableItem.GetComponent<BaseItemPrefab>().belongingHero = (int) HeroManager.Instance.TranslateStringTypeToUnitType(HeroPageManager.Instance.selectedHero.type);
+                draggableItem.transform.GetChild(0).GetComponent<Image>().gameObject.SetActive(true);
+                switch (draggableItem.parentItemDrag.GetComponent<InventorySlot>().slotType)
+                {
+                    case SlotType.WeaponSlot:
+                        HeroPageManager.Instance.selectedHero.weaponSlot = itemToSwitch.item;
+                        break;
+                    case SlotType.EquipmentSlot:
+                        HeroPageManager.Instance.selectedHero.equipmentSlot = itemToSwitch.item;
+                        break;
+                    case SlotType.ConsumableSlotOne:
+                        HeroPageManager.Instance.selectedHero.consumableSlotOne = itemToSwitch.item;
+                        break;
+                    case SlotType.ConsumableSlotTwo:
+                        HeroPageManager.Instance.selectedHero.consumableSlotTwo = itemToSwitch.item;
+                        break;
                 }
+                GetComponent<BaseItemPrefab>().belongingHero = 99;
+                transform.GetChild(0).GetComponent<Image>().gameObject.SetActive(false);
+                
             }
+            else if (itemToBeSwitched.belongingHero <= 10) {
+
+                GetComponent<BaseItemPrefab>().belongingHero = (int) HeroManager.Instance.TranslateStringTypeToUnitType(HeroPageManager.Instance.selectedHero.type);
+                transform.GetChild(0).GetComponent<Image>().gameObject.SetActive(true);
+                switch (parentItemDrag.GetComponent<InventorySlot>().slotType)
+                {
+                    case SlotType.WeaponSlot:
+                        HeroPageManager.Instance.selectedHero.weaponSlot = itemToBeSwitched.item;
+                        break;
+                    case SlotType.EquipmentSlot:
+                        HeroPageManager.Instance.selectedHero.equipmentSlot = itemToBeSwitched.item;
+                        break;
+                    case SlotType.ConsumableSlotOne:
+                        HeroPageManager.Instance.selectedHero.consumableSlotOne = itemToBeSwitched.item;
+                        break;
+                    case SlotType.ConsumableSlotTwo:
+                        HeroPageManager.Instance.selectedHero.consumableSlotTwo = itemToBeSwitched.item;
+                        break;
+                }
+                draggableItem.gameObject.GetComponent<BaseItemPrefab>().belongingHero = 99;
+                draggableItem.transform.GetChild(0).GetComponent<Image>().gameObject.SetActive(false);
+            }
+            SwitchItemSlots(draggableItem);
+
+        }
+        else {
+            if (currentSlot.slotType == SlotType.NormalSlot && draggableItem.parentItemDrag.GetComponent<InventorySlot>().slotType == SlotType.NormalSlot) {
+                SwitchItemSlots(draggableItem);
+            }
+        }
     }
 
     private void SwitchItemSlots(DraggableItem draggableItem)
